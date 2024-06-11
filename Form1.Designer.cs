@@ -67,6 +67,7 @@
             // 
             this.txtConfirmPass.Location = new System.Drawing.Point(263, 33);
             this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.PasswordChar = '*';
             this.txtConfirmPass.Size = new System.Drawing.Size(118, 20);
             this.txtConfirmPass.TabIndex = 2;
             this.txtConfirmPass.TextChanged += new System.EventHandler(this.txtConfirmPass_TextChanged);
@@ -75,6 +76,7 @@
             // 
             this.txtPass.Location = new System.Drawing.Point(137, 33);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(120, 20);
             this.txtPass.TabIndex = 3;
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
