@@ -120,7 +120,7 @@
             // cbmSecureQuest
             // 
             this.cbmSecureQuest.FormattingEnabled = true;
-            this.cbmSecureQuest.Location = new System.Drawing.Point(31, 83);
+            this.cbmSecureQuest.Location = new System.Drawing.Point(10, 96);
             this.cbmSecureQuest.Name = "cbmSecureQuest";
             this.cbmSecureQuest.Size = new System.Drawing.Size(121, 21);
             this.cbmSecureQuest.TabIndex = 7;
