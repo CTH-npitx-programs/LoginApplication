@@ -35,6 +35,8 @@
             this.lbl_UserID = new System.Windows.Forms.Label();
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.cbmSecureQuest = new System.Windows.Forms.ComboBox();
+            this.lstSecureQuest = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -117,12 +119,34 @@
             this.lblPassword.Text = "Password";
             this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
             // 
+            // cbmSecureQuest
+            // 
+            this.cbmSecureQuest.FormattingEnabled = true;
+            this.cbmSecureQuest.Items.AddRange(new object[] {
+            "What was your mothers maiden name?",
+            "What was the name of the city you where born in?",
+            "What was your first pets name?"});
+            this.cbmSecureQuest.Location = new System.Drawing.Point(31, 83);
+            this.cbmSecureQuest.Name = "cbmSecureQuest";
+            this.cbmSecureQuest.Size = new System.Drawing.Size(121, 21);
+            this.cbmSecureQuest.TabIndex = 7;
+            // 
+            // lstSecureQuest
+            // 
+            this.lstSecureQuest.FormattingEnabled = true;
+            this.lstSecureQuest.Location = new System.Drawing.Point(550, 7);
+            this.lstSecureQuest.Name = "lstSecureQuest";
+            this.lstSecureQuest.Size = new System.Drawing.Size(120, 95);
+            this.lstSecureQuest.TabIndex = 8;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lstSecureQuest);
+            this.Controls.Add(this.cbmSecureQuest);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.lbl_UserID);
@@ -154,6 +178,8 @@
         private System.Windows.Forms.Label lbl_UserID;
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.ComboBox cbmSecureQuest;
+        private System.Windows.Forms.ListBox lstSecureQuest;
     }
 }
 
