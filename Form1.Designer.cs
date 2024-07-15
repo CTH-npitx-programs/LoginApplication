@@ -36,7 +36,7 @@
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.cbmSecureQuest = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstQuestionList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -120,24 +120,26 @@
             // cbmSecureQuest
             // 
             this.cbmSecureQuest.FormattingEnabled = true;
-            this.cbmSecureQuest.Location = new System.Drawing.Point(10, 96);
+            this.cbmSecureQuest.Location = new System.Drawing.Point(2, 59);
             this.cbmSecureQuest.Name = "cbmSecureQuest";
             this.cbmSecureQuest.Size = new System.Drawing.Size(121, 21);
             this.cbmSecureQuest.TabIndex = 7;
+            this.cbmSecureQuest.SelectedIndexChanged += new System.EventHandler(this.cbmSecureQuest_SelectedIndexChanged);
             // 
-            // listBox1
+            // lstQuestionList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lstQuestionList.FormattingEnabled = true;
+            this.lstQuestionList.Items.AddRange(new object[] {
             "What was your mothers maiden name?",
             "What was the name of the city you where born in?",
             "What was your first pets name?"});
-            this.listBox1.Location = new System.Drawing.Point(2, 317);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(273, 121);
-            this.listBox1.TabIndex = 8;
-            this.listBox1.UseWaitCursor = true;
-            this.listBox1.Visible = false;
+            this.lstQuestionList.Location = new System.Drawing.Point(12, 317);
+            this.lstQuestionList.Name = "lstQuestionList";
+            this.lstQuestionList.Size = new System.Drawing.Size(273, 121);
+            this.lstQuestionList.TabIndex = 8;
+            this.lstQuestionList.Tag = "allQuestions";
+            this.lstQuestionList.UseWaitCursor = true;
+            this.lstQuestionList.SelectedIndexChanged += new System.EventHandler(this.lstQuestionList_SelectedIndexChanged);
             // 
             // frmMain
             // 
@@ -145,7 +147,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstQuestionList);
             this.Controls.Add(this.cbmSecureQuest);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblConfirmPassword);
@@ -179,7 +181,7 @@
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.ComboBox cbmSecureQuest;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstQuestionList;
     }
 }
 

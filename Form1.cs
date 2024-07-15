@@ -19,7 +19,7 @@ namespace LoginApplication
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+        cbmSecureQuest.Items.Clear();
         }
         //close program
         private void btnClose_Click(object sender, EventArgs e)
@@ -54,6 +54,16 @@ namespace LoginApplication
         }
 
         private void lblConfirmPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstQuestionList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbmSecureQuest_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
