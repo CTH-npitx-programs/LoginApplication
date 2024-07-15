@@ -35,8 +35,6 @@
             this.lbl_UserID = new System.Windows.Forms.Label();
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.cbmSecureQuest = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -69,16 +67,18 @@
             // 
             this.txtConfirmPass.Location = new System.Drawing.Point(263, 33);
             this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.PasswordChar = '*';
             this.txtConfirmPass.Size = new System.Drawing.Size(118, 20);
-            this.txtConfirmPass.TabIndex = 2;
+            this.txtConfirmPass.TabIndex = 3;
             this.txtConfirmPass.TextChanged += new System.EventHandler(this.txtConfirmPass_TextChanged);
             // 
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(137, 33);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(120, 20);
-            this.txtPass.TabIndex = 3;
+            this.txtPass.TabIndex = 2;
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
             // lbl_UserID
@@ -117,36 +117,12 @@
             this.lblPassword.Text = "Password";
             this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
             // 
-            // cbmSecureQuest
-            // 
-            this.cbmSecureQuest.FormattingEnabled = true;
-            this.cbmSecureQuest.Location = new System.Drawing.Point(31, 83);
-            this.cbmSecureQuest.Name = "cbmSecureQuest";
-            this.cbmSecureQuest.Size = new System.Drawing.Size(121, 21);
-            this.cbmSecureQuest.TabIndex = 7;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
-            "What was your mothers maiden name?",
-            "What was the name of the city you where born in?",
-            "What was your first pets name?"});
-            this.listBox1.Location = new System.Drawing.Point(2, 317);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(273, 121);
-            this.listBox1.TabIndex = 8;
-            this.listBox1.UseWaitCursor = true;
-            this.listBox1.Visible = false;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.cbmSecureQuest);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.lbl_UserID);
@@ -178,8 +154,6 @@
         private System.Windows.Forms.Label lbl_UserID;
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.ComboBox cbmSecureQuest;
-        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
