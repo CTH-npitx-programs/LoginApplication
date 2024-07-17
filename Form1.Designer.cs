@@ -39,6 +39,7 @@
             this.prgStage = new System.Windows.Forms.ProgressBar();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.txtSecAnswer = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -134,7 +135,7 @@
             "You credit card number",
             "You debit card number",
             "Your ATM pin"});
-            this.cmbSecQuest.Location = new System.Drawing.Point(31, 144);
+            this.cmbSecQuest.Location = new System.Drawing.Point(31, 187);
             this.cmbSecQuest.Name = "cmbSecQuest";
             this.cmbSecQuest.Size = new System.Drawing.Size(121, 21);
             this.cmbSecQuest.TabIndex = 7;
@@ -145,7 +146,9 @@
             this.prgStage.Maximum = 3;
             this.prgStage.Name = "prgStage";
             this.prgStage.Size = new System.Drawing.Size(100, 23);
+            this.prgStage.Step = 1;
             this.prgStage.TabIndex = 8;
+            this.prgStage.Click += new System.EventHandler(this.prgStage_Click);
             // 
             // splitter1
             // 
@@ -162,8 +165,8 @@
             this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnConfirm.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnConfirm.FlatAppearance.BorderSize = 2;
-            this.btnConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.btnConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.Location = new System.Drawing.Point(421, 57);
@@ -174,12 +177,20 @@
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // txtSecAnswer
+            // 
+            this.txtSecAnswer.Location = new System.Drawing.Point(31, 231);
+            this.txtSecAnswer.Name = "txtSecAnswer";
+            this.txtSecAnswer.Size = new System.Drawing.Size(100, 20);
+            this.txtSecAnswer.TabIndex = 12;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtSecAnswer);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.prgStage);
@@ -219,6 +230,7 @@
         private System.Windows.Forms.ProgressBar prgStage;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.TextBox txtSecAnswer;
     }
 }
 

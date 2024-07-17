@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace LoginApplication
 {
     public partial class frmMain : Form
     {
+        int clickCount = 0;
         public frmMain()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace LoginApplication
 
         private void txtUserID_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
@@ -59,6 +61,12 @@ namespace LoginApplication
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            clickCount;
+            txtSecAnswer. = clickCount;
+        }
+
+        private void prgStage_Click(object sender, EventArgs e)
         {
 
         }
