@@ -138,16 +138,19 @@
             this.cmbSecQuest.Location = new System.Drawing.Point(31, 187);
             this.cmbSecQuest.Name = "cmbSecQuest";
             this.cmbSecQuest.Size = new System.Drawing.Size(121, 21);
-            this.cmbSecQuest.TabIndex = 7;
+            this.cmbSecQuest.TabIndex = 5;
             // 
             // prgStage
             // 
+            this.prgStage.Enabled = false;
             this.prgStage.Location = new System.Drawing.Point(543, 13);
+            this.prgStage.MarqueeAnimationSpeed = 0;
             this.prgStage.Maximum = 3;
             this.prgStage.Name = "prgStage";
             this.prgStage.Size = new System.Drawing.Size(100, 23);
             this.prgStage.Step = 1;
-            this.prgStage.TabIndex = 8;
+            this.prgStage.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.prgStage.TabIndex = 0;
             this.prgStage.Click += new System.EventHandler(this.prgStage_Click);
             // 
             // splitter1
@@ -172,7 +175,7 @@
             this.btnConfirm.Location = new System.Drawing.Point(421, 57);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(88, 44);
-            this.btnConfirm.TabIndex = 11;
+            this.btnConfirm.TabIndex = 4;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = false;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
@@ -182,10 +185,12 @@
             this.txtSecAnswer.Location = new System.Drawing.Point(31, 231);
             this.txtSecAnswer.Name = "txtSecAnswer";
             this.txtSecAnswer.Size = new System.Drawing.Size(100, 20);
-            this.txtSecAnswer.TabIndex = 12;
+            this.txtSecAnswer.TabIndex = 6;
+            this.txtSecAnswer.TextChanged += new System.EventHandler(this.txtSecAnswer_TextChanged);
             // 
             // frmMain
             // 
+            this.AcceptButton = this.btnConfirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
