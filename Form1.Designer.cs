@@ -35,6 +35,10 @@
             this.lbl_UserID = new System.Windows.Forms.Label();
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.cmbSecQuest = new System.Windows.Forms.ComboBox();
+            this.prgStage = new System.Windows.Forms.ProgressBar();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClose
@@ -117,12 +121,69 @@
             this.lblPassword.Text = "Password";
             this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
             // 
+            // cmbSecQuest
+            // 
+            this.cmbSecQuest.FormattingEnabled = true;
+            this.cmbSecQuest.Items.AddRange(new object[] {
+            "What is your Social Security Number",
+            "DOD identification card number",
+            "Your full legal name",
+            "Your mothers maiden name",
+            "Your full date of birth",
+            "Your credit score",
+            "You credit card number",
+            "You debit card number",
+            "Your ATM pin"});
+            this.cmbSecQuest.Location = new System.Drawing.Point(31, 144);
+            this.cmbSecQuest.Name = "cmbSecQuest";
+            this.cmbSecQuest.Size = new System.Drawing.Size(121, 21);
+            this.cmbSecQuest.TabIndex = 7;
+            // 
+            // prgStage
+            // 
+            this.prgStage.Location = new System.Drawing.Point(543, 13);
+            this.prgStage.Maximum = 3;
+            this.prgStage.Name = "prgStage";
+            this.prgStage.Size = new System.Drawing.Size(100, 23);
+            this.prgStage.TabIndex = 8;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 450);
+            this.splitter1.TabIndex = 9;
+            this.splitter1.TabStop = false;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.BackColor = System.Drawing.Color.Lime;
+            this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirm.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnConfirm.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConfirm.FlatAppearance.BorderSize = 2;
+            this.btnConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirm.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Location = new System.Drawing.Point(421, 57);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(88, 44);
+            this.btnConfirm.TabIndex = 11;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.splitter1);
+            this.Controls.Add(this.prgStage);
+            this.Controls.Add(this.cmbSecQuest);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.lbl_UserID);
@@ -154,6 +215,10 @@
         private System.Windows.Forms.Label lbl_UserID;
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.ComboBox cmbSecQuest;
+        private System.Windows.Forms.ProgressBar prgStage;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Button btnConfirm;
     }
 }
 
