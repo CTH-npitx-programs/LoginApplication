@@ -36,10 +36,12 @@
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.cmbSecQuest = new System.Windows.Forms.ComboBox();
-            this.prgStage = new System.Windows.Forms.ProgressBar();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.txtSecAnswer = new System.Windows.Forms.TextBox();
+            this.txtUserError = new System.Windows.Forms.TextBox();
+            this.txtPasswordError = new System.Windows.Forms.TextBox();
+            this.txtConfirmError = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -137,21 +139,8 @@
             "Your ATM pin"});
             this.cmbSecQuest.Location = new System.Drawing.Point(31, 187);
             this.cmbSecQuest.Name = "cmbSecQuest";
-            this.cmbSecQuest.Size = new System.Drawing.Size(121, 21);
+            this.cmbSecQuest.Size = new System.Drawing.Size(173, 21);
             this.cmbSecQuest.TabIndex = 5;
-            // 
-            // prgStage
-            // 
-            this.prgStage.Enabled = false;
-            this.prgStage.Location = new System.Drawing.Point(543, 13);
-            this.prgStage.MarqueeAnimationSpeed = 0;
-            this.prgStage.Maximum = 3;
-            this.prgStage.Name = "prgStage";
-            this.prgStage.Size = new System.Drawing.Size(100, 23);
-            this.prgStage.Step = 1;
-            this.prgStage.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.prgStage.TabIndex = 0;
-            this.prgStage.Click += new System.EventHandler(this.prgStage_Click);
             // 
             // splitter1
             // 
@@ -184,9 +173,48 @@
             // 
             this.txtSecAnswer.Location = new System.Drawing.Point(31, 231);
             this.txtSecAnswer.Name = "txtSecAnswer";
-            this.txtSecAnswer.Size = new System.Drawing.Size(100, 20);
+            this.txtSecAnswer.Size = new System.Drawing.Size(173, 20);
             this.txtSecAnswer.TabIndex = 6;
             this.txtSecAnswer.TextChanged += new System.EventHandler(this.txtSecAnswer_TextChanged);
+            // 
+            // txtUserError
+            // 
+            this.txtUserError.BackColor = System.Drawing.SystemColors.Control;
+            this.txtUserError.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUserError.Enabled = false;
+            this.txtUserError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserError.Location = new System.Drawing.Point(31, 59);
+            this.txtUserError.Name = "txtUserError";
+            this.txtUserError.Size = new System.Drawing.Size(100, 13);
+            this.txtUserError.TabIndex = 11;
+            this.txtUserError.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUserError.TextChanged += new System.EventHandler(this.txtUserError_TextChanged);
+            // 
+            // txtPasswordError
+            // 
+            this.txtPasswordError.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPasswordError.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPasswordError.Enabled = false;
+            this.txtPasswordError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPasswordError.Location = new System.Drawing.Point(137, 58);
+            this.txtPasswordError.Name = "txtPasswordError";
+            this.txtPasswordError.Size = new System.Drawing.Size(120, 13);
+            this.txtPasswordError.TabIndex = 12;
+            this.txtPasswordError.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPasswordError.TextChanged += new System.EventHandler(this.txtPasswordError_TextChanged);
+            // 
+            // txtConfirmError
+            // 
+            this.txtConfirmError.BackColor = System.Drawing.SystemColors.Control;
+            this.txtConfirmError.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtConfirmError.Enabled = false;
+            this.txtConfirmError.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmError.Location = new System.Drawing.Point(263, 57);
+            this.txtConfirmError.Name = "txtConfirmError";
+            this.txtConfirmError.Size = new System.Drawing.Size(118, 13);
+            this.txtConfirmError.TabIndex = 13;
+            this.txtConfirmError.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtConfirmError.TextChanged += new System.EventHandler(this.txtConfirmError_TextChanged);
             // 
             // frmMain
             // 
@@ -195,10 +223,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtConfirmError);
+            this.Controls.Add(this.txtPasswordError);
+            this.Controls.Add(this.txtUserError);
             this.Controls.Add(this.txtSecAnswer);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.prgStage);
             this.Controls.Add(this.cmbSecQuest);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblConfirmPassword);
@@ -232,10 +262,12 @@
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.ComboBox cmbSecQuest;
-        private System.Windows.Forms.ProgressBar prgStage;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.TextBox txtSecAnswer;
+        private System.Windows.Forms.TextBox txtUserError;
+        private System.Windows.Forms.TextBox txtPasswordError;
+        private System.Windows.Forms.TextBox txtConfirmError;
     }
 }
 
