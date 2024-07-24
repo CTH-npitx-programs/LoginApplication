@@ -67,7 +67,7 @@ namespace LoginApplication
             var uID = txtUserID.Text; //storeID
             var pass = txtPass.Text; //pass
             var confirmPass = txtConfirmPass.Text; //passConfirm
-            var secQuest = cmbSecQuest.Text; //Security Question
+            var secQuest = cmbSecQuest.SelectedItem.ToString(); //Security Question
             var secAns = txtSecAnswer.Text; //Security Answer
             var correctCol = Color.LimeGreen; //what color to use for correct inputs
             var incorrectCol = Color.OrangeRed; //what color to use for incorrect inputs
@@ -119,9 +119,15 @@ namespace LoginApplication
                     txtConfirmError.Text = "Passcodes inequal";
                 };
             };
-            
-            // show correct var
-            lblConfirmPassword.Text = correct.ToString();
+
+            //chose question
+            if(string.IsNullOrEmpty(secQuest) == false)
+            {
+                correct++;
+            } else
+            {
+
+            };
 
         }
 
@@ -146,6 +152,16 @@ namespace LoginApplication
         }
 
         private void txtUserError_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAnswerWarn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtQuestionWarn_TextChanged(object sender, EventArgs e)
         {
 
         }

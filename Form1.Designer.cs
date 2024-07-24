@@ -42,6 +42,9 @@
             this.txtUserError = new System.Windows.Forms.TextBox();
             this.txtPasswordError = new System.Windows.Forms.TextBox();
             this.txtConfirmError = new System.Windows.Forms.TextBox();
+            this.txtQuestionWarn = new System.Windows.Forms.TextBox();
+            this.txtAnswerWarn = new System.Windows.Forms.TextBox();
+            this.txt_debugInfo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -173,7 +176,7 @@
             // 
             this.txtSecAnswer.Location = new System.Drawing.Point(31, 231);
             this.txtSecAnswer.Name = "txtSecAnswer";
-            this.txtSecAnswer.Size = new System.Drawing.Size(173, 20);
+            this.txtSecAnswer.Size = new System.Drawing.Size(121, 20);
             this.txtSecAnswer.TabIndex = 6;
             this.txtSecAnswer.TextChanged += new System.EventHandler(this.txtSecAnswer_TextChanged);
             // 
@@ -216,6 +219,42 @@
             this.txtConfirmError.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtConfirmError.TextChanged += new System.EventHandler(this.txtConfirmError_TextChanged);
             // 
+            // txtQuestionWarn
+            // 
+            this.txtQuestionWarn.BackColor = System.Drawing.SystemColors.Control;
+            this.txtQuestionWarn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtQuestionWarn.Enabled = false;
+            this.txtQuestionWarn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuestionWarn.Location = new System.Drawing.Point(220, 187);
+            this.txtQuestionWarn.Name = "txtQuestionWarn";
+            this.txtQuestionWarn.Size = new System.Drawing.Size(118, 13);
+            this.txtQuestionWarn.TabIndex = 14;
+            this.txtQuestionWarn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtQuestionWarn.TextChanged += new System.EventHandler(this.txtQuestionWarn_TextChanged);
+            // 
+            // txtAnswerWarn
+            // 
+            this.txtAnswerWarn.BackColor = System.Drawing.SystemColors.Control;
+            this.txtAnswerWarn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAnswerWarn.Enabled = false;
+            this.txtAnswerWarn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAnswerWarn.Location = new System.Drawing.Point(220, 231);
+            this.txtAnswerWarn.Name = "txtAnswerWarn";
+            this.txtAnswerWarn.Size = new System.Drawing.Size(118, 13);
+            this.txtAnswerWarn.TabIndex = 15;
+            this.txtAnswerWarn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAnswerWarn.TextChanged += new System.EventHandler(this.txtAnswerWarn_TextChanged);
+            // 
+            // txt_debugInfo
+            // 
+            this.txt_debugInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_debugInfo.Location = new System.Drawing.Point(574, 5);
+            this.txt_debugInfo.Multiline = true;
+            this.txt_debugInfo.Name = "txt_debugInfo";
+            this.txt_debugInfo.ReadOnly = true;
+            this.txt_debugInfo.Size = new System.Drawing.Size(100, 96);
+            this.txt_debugInfo.TabIndex = 0;
+            // 
             // frmMain
             // 
             this.AcceptButton = this.btnConfirm;
@@ -223,6 +262,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txt_debugInfo);
+            this.Controls.Add(this.txtAnswerWarn);
+            this.Controls.Add(this.txtQuestionWarn);
             this.Controls.Add(this.txtConfirmError);
             this.Controls.Add(this.txtPasswordError);
             this.Controls.Add(this.txtUserError);
@@ -268,6 +310,9 @@
         private System.Windows.Forms.TextBox txtUserError;
         private System.Windows.Forms.TextBox txtPasswordError;
         private System.Windows.Forms.TextBox txtConfirmError;
+        private System.Windows.Forms.TextBox txtQuestionWarn;
+        private System.Windows.Forms.TextBox txtAnswerWarn;
+        private System.Windows.Forms.TextBox txt_debugInfo;
     }
 }
 
