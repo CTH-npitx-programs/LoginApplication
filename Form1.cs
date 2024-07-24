@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace LoginApplication
         {
 
         }
+
         //close program
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -63,11 +65,29 @@ namespace LoginApplication
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            //setup debug box
+            txt_debugInfo.Text = string.Empty;
+
+            //create debug system
+            string addText (string inputText) {
+                if (txt_debugInfo.Text == string.Empty)
+                {
+                    txt_debugInfo.Text = inputText;
+                }
+                else
+                {
+                    txt_debugInfo.AppendText(Environment.NewLine);
+                    txt_debugInfo.Text += inputText;
+                }                
+                return txt_debugInfo.Text;
+            };
+            
+            // vars
             var correct = 0;
             var uID = txtUserID.Text; //storeID
             var pass = txtPass.Text; //pass
             var confirmPass = txtConfirmPass.Text; //passConfirm
-            var secQuest = cmbSecQuest.SelectedItem.ToString(); //Security Question
+            string secQuest = cmbSecQuest.SelectedItem.ToString(); //Security Question
             var secAns = txtSecAnswer.Text; //Security Answer
             var correctCol = Color.LimeGreen; //what color to use for correct inputs
             var incorrectCol = Color.OrangeRed; //what color to use for incorrect inputs
@@ -121,13 +141,16 @@ namespace LoginApplication
             };
 
             //chose question
-            if(string.IsNullOrEmpty(secQuest) == false)
-            {
-                correct++;
-            } else
-            {
+            /*  if(string.IsNullOrEmpty(secQuest) == false)
+              {
+                  correct++;
+              } else
+              {
 
-            };
+              }; */
+
+            addText(correct.ToString());
+            addText(secQuest);
 
         }
 
@@ -162,6 +185,11 @@ namespace LoginApplication
         }
 
         private void txtQuestionWarn_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_debugInfo_TextChanged(object sender, EventArgs e)
         {
 
         }
