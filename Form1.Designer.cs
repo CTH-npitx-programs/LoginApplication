@@ -35,7 +35,6 @@
             this.lbl_UserID = new System.Windows.Forms.Label();
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.cmbSecQuest = new System.Windows.Forms.ComboBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.txtSecAnswer = new System.Windows.Forms.TextBox();
@@ -46,6 +45,9 @@
             this.txtAnswerWarn = new System.Windows.Forms.TextBox();
             this.txt_debugInfo = new System.Windows.Forms.TextBox();
             this.lblCountSecQuest = new System.Windows.Forms.Label();
+            this.lbl_secAns = new System.Windows.Forms.Label();
+            this.cmbSecQuest = new System.Windows.Forms.ComboBox();
+            this.lbl_SeqQuest = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnClose
@@ -128,26 +130,6 @@
             this.lblPassword.Text = "Password";
             this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
             // 
-            // cmbSecQuest
-            // 
-            this.cmbSecQuest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSecQuest.FormattingEnabled = true;
-            this.cmbSecQuest.Items.AddRange(new object[] {
-            "What is your Social Security Number",
-            "DOD identification card number",
-            "Your full legal name",
-            "Your mothers maiden name",
-            "Your full date of birth",
-            "Your credit score",
-            "You credit card number",
-            "You debit card number",
-            "Your ATM pin"});
-            this.cmbSecQuest.Location = new System.Drawing.Point(31, 187);
-            this.cmbSecQuest.Name = "cmbSecQuest";
-            this.cmbSecQuest.Size = new System.Drawing.Size(226, 21);
-            this.cmbSecQuest.TabIndex = 5;
-            this.cmbSecQuest.SelectedIndexChanged += new System.EventHandler(this.cmbSecQuest_SelectedIndexChanged);
-            // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
@@ -177,7 +159,7 @@
             // 
             // txtSecAnswer
             // 
-            this.txtSecAnswer.Location = new System.Drawing.Point(31, 231);
+            this.txtSecAnswer.Location = new System.Drawing.Point(31, 277);
             this.txtSecAnswer.Name = "txtSecAnswer";
             this.txtSecAnswer.Size = new System.Drawing.Size(157, 20);
             this.txtSecAnswer.TabIndex = 6;
@@ -228,9 +210,9 @@
             this.txtQuestionWarn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtQuestionWarn.Enabled = false;
             this.txtQuestionWarn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuestionWarn.Location = new System.Drawing.Point(220, 231);
+            this.txtQuestionWarn.Location = new System.Drawing.Point(290, 179);
             this.txtQuestionWarn.Name = "txtQuestionWarn";
-            this.txtQuestionWarn.Size = new System.Drawing.Size(118, 13);
+            this.txtQuestionWarn.Size = new System.Drawing.Size(174, 13);
             this.txtQuestionWarn.TabIndex = 14;
             this.txtQuestionWarn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtQuestionWarn.TextChanged += new System.EventHandler(this.txtQuestionWarn_TextChanged);
@@ -241,7 +223,7 @@
             this.txtAnswerWarn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAnswerWarn.Enabled = false;
             this.txtAnswerWarn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnswerWarn.Location = new System.Drawing.Point(220, 231);
+            this.txtAnswerWarn.Location = new System.Drawing.Point(226, 231);
             this.txtAnswerWarn.Name = "txtAnswerWarn";
             this.txtAnswerWarn.Size = new System.Drawing.Size(118, 13);
             this.txtAnswerWarn.TabIndex = 15;
@@ -273,6 +255,48 @@
             this.lblCountSecQuest.Visible = false;
             this.lblCountSecQuest.Click += new System.EventHandler(this.lblCountSecQuest_Click);
             // 
+            // lbl_secAns
+            // 
+            this.lbl_secAns.AutoSize = true;
+            this.lbl_secAns.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_secAns.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_secAns.Location = new System.Drawing.Point(31, 255);
+            this.lbl_secAns.Name = "lbl_secAns";
+            this.lbl_secAns.Size = new System.Drawing.Size(111, 19);
+            this.lbl_secAns.TabIndex = 19;
+            this.lbl_secAns.Text = "Security Answer";
+            // 
+            // cmbSecQuest
+            // 
+            this.cmbSecQuest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSecQuest.FormattingEnabled = true;
+            this.cmbSecQuest.Items.AddRange(new object[] {
+            "What is your Social Security Number",
+            "DOD identification card number",
+            "Your full legal name",
+            "Your mothers maiden name",
+            "Your full date of birth",
+            "Your credit score",
+            "You credit card number",
+            "You debit card number",
+            "Your ATM pin"});
+            this.cmbSecQuest.Location = new System.Drawing.Point(31, 176);
+            this.cmbSecQuest.Name = "cmbSecQuest";
+            this.cmbSecQuest.Size = new System.Drawing.Size(226, 21);
+            this.cmbSecQuest.TabIndex = 5;
+            this.cmbSecQuest.SelectedIndexChanged += new System.EventHandler(this.cmbSecQuest_SelectedIndexChanged);
+            // 
+            // lbl_SeqQuest
+            // 
+            this.lbl_SeqQuest.AutoSize = true;
+            this.lbl_SeqQuest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_SeqQuest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_SeqQuest.Location = new System.Drawing.Point(31, 154);
+            this.lbl_SeqQuest.Name = "lbl_SeqQuest";
+            this.lbl_SeqQuest.Size = new System.Drawing.Size(122, 19);
+            this.lbl_SeqQuest.TabIndex = 18;
+            this.lbl_SeqQuest.Text = "Security Question";
+            // 
             // frmMain
             // 
             this.AcceptButton = this.btnConfirm;
@@ -280,17 +304,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_SeqQuest);
+            this.Controls.Add(this.lbl_secAns);
+            this.Controls.Add(this.cmbSecQuest);
+            this.Controls.Add(this.txtSecAnswer);
             this.Controls.Add(this.lblCountSecQuest);
-            this.Controls.Add(this.txt_debugInfo);
             this.Controls.Add(this.txtAnswerWarn);
+            this.Controls.Add(this.txt_debugInfo);
             this.Controls.Add(this.txtQuestionWarn);
             this.Controls.Add(this.txtConfirmError);
             this.Controls.Add(this.txtPasswordError);
             this.Controls.Add(this.txtUserError);
-            this.Controls.Add(this.txtSecAnswer);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.cmbSecQuest);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblConfirmPassword);
             this.Controls.Add(this.lbl_UserID);
@@ -322,7 +348,6 @@
         private System.Windows.Forms.Label lbl_UserID;
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.ComboBox cmbSecQuest;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.TextBox txtSecAnswer;
@@ -333,6 +358,9 @@
         private System.Windows.Forms.TextBox txtAnswerWarn;
         private System.Windows.Forms.TextBox txt_debugInfo;
         private System.Windows.Forms.Label lblCountSecQuest;
+        private System.Windows.Forms.Label lbl_secAns;
+        private System.Windows.Forms.ComboBox cmbSecQuest;
+        private System.Windows.Forms.Label lbl_SeqQuest;
     }
 }
 

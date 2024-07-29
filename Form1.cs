@@ -23,10 +23,10 @@ namespace LoginApplication
             InitializeComponent();
         }
 
+        string cmbPlaceholdText = "Select the desired question from this list"; //the placeholder combo box text
         private void frmMain_Load(object sender, EventArgs e)
         {
-            string TempText = "Select the desired question from this list";
-            cmbSecQuest.Items.Insert(0, TempText);
+            cmbSecQuest.Items.Insert(0, cmbPlaceholdText);
             cmbSecQuest.SelectedIndex = 0;
         }
 
@@ -123,7 +123,7 @@ namespace LoginApplication
                 txtPasswordError.Text = string.Empty;
             };
 
-            //
+            //passcodes same?
             if ( txtPass.BackColor == incorrectCol)
             {
                 txtConfirmPass.BackColor = incorrectCol;
@@ -147,8 +147,26 @@ namespace LoginApplication
 
             correct = correct + pickedSecQuest;
             //chose question
-            if(string.IsNullOrEmpty(secQuest) == false)
+           if (secQuest == cmbPlaceholdText)
+            {
+                txtQuestionWarn.Text = "Pick Desired Question";
+            } else
+            {
+                txtQuestionWarn.Text = string.Empty;
+            };
 
+            if( secAns == string.Empty )
+            {
+                txtAnswerWarn.Text = "No Provided Answer";
+                txtSecAnswer.BackColor = incorrectCol;
+            } else
+            {
+                txtAnswerWarn.Text = string.Empty;
+                txtSecAnswer.BackColor = correctCol;
+                txtSecAnswer.Enabled = false;
+                cmbSecQuest.Enabled = false;
+                correct++;
+            };
 
             addText(correct.ToString());
             addText(secQuest);
@@ -217,12 +235,13 @@ namespace LoginApplication
                 else
                 {
                     // remove first entry
-                    cmbSecQuest.Items.RemoveAt(0);
-
-                    //show converted
+                    cmbSecQuest.Items.RemoveAt(0); 
                     lblCountSecQuest.Text = Convert.ToString(run + 1);
+
                 };
             };
         }
+
+
     }
 }
