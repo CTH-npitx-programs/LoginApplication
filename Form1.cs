@@ -7,7 +7,9 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,7 +25,9 @@ namespace LoginApplication
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
+            string TempText = "Select the desired question from this list";
+            cmbSecQuest.Items.Insert(0, TempText);
+            cmbSecQuest.SelectedIndex = 0;
         }
 
         //close program
@@ -91,6 +95,7 @@ namespace LoginApplication
             var secAns = txtSecAnswer.Text; //Security Answer
             var correctCol = Color.LimeGreen; //what color to use for correct inputs
             var incorrectCol = Color.OrangeRed; //what color to use for incorrect inputs
+            var pickedSecQuest = int.Parse(lblCountSecQuest.Text);
 
             //user ID full?
             if (uID == string.Empty)
@@ -140,14 +145,10 @@ namespace LoginApplication
                 };
             };
 
+            correct = correct + pickedSecQuest;
             //chose question
-            /*  if(string.IsNullOrEmpty(secQuest) == false)
-              {
-                  correct++;
-              } else
-              {
+            if(string.IsNullOrEmpty(secQuest) == false)
 
-              }; */
 
             addText(correct.ToString());
             addText(secQuest);
@@ -192,6 +193,36 @@ namespace LoginApplication
         private void txt_debugInfo_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblCountSecQuest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbSecQuest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //current index
+
+            int indexNum = int.Parse(cmbSecQuest.SelectedIndex.ToString());
+
+            //has run
+            int run = int.Parse(lblCountSecQuest.Text.ToString());
+            if (run == 0)
+            {
+                if (indexNum == 0)
+                {
+
+                }
+                else
+                {
+                    // remove first entry
+                    cmbSecQuest.Items.RemoveAt(0);
+
+                    //show converted
+                    lblCountSecQuest.Text = Convert.ToString(run + 1);
+                };
+            };
         }
     }
 }

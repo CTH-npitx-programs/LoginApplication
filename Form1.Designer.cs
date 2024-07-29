@@ -45,6 +45,7 @@
             this.txtQuestionWarn = new System.Windows.Forms.TextBox();
             this.txtAnswerWarn = new System.Windows.Forms.TextBox();
             this.txt_debugInfo = new System.Windows.Forms.TextBox();
+            this.lblCountSecQuest = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnClose
@@ -129,6 +130,7 @@
             // 
             // cmbSecQuest
             // 
+            this.cmbSecQuest.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSecQuest.FormattingEnabled = true;
             this.cmbSecQuest.Items.AddRange(new object[] {
             "What is your Social Security Number",
@@ -142,8 +144,9 @@
             "Your ATM pin"});
             this.cmbSecQuest.Location = new System.Drawing.Point(31, 187);
             this.cmbSecQuest.Name = "cmbSecQuest";
-            this.cmbSecQuest.Size = new System.Drawing.Size(173, 21);
+            this.cmbSecQuest.Size = new System.Drawing.Size(226, 21);
             this.cmbSecQuest.TabIndex = 5;
+            this.cmbSecQuest.SelectedIndexChanged += new System.EventHandler(this.cmbSecQuest_SelectedIndexChanged);
             // 
             // splitter1
             // 
@@ -176,7 +179,7 @@
             // 
             this.txtSecAnswer.Location = new System.Drawing.Point(31, 231);
             this.txtSecAnswer.Name = "txtSecAnswer";
-            this.txtSecAnswer.Size = new System.Drawing.Size(121, 20);
+            this.txtSecAnswer.Size = new System.Drawing.Size(157, 20);
             this.txtSecAnswer.TabIndex = 6;
             this.txtSecAnswer.TextChanged += new System.EventHandler(this.txtSecAnswer_TextChanged);
             // 
@@ -225,7 +228,7 @@
             this.txtQuestionWarn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtQuestionWarn.Enabled = false;
             this.txtQuestionWarn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuestionWarn.Location = new System.Drawing.Point(220, 187);
+            this.txtQuestionWarn.Location = new System.Drawing.Point(220, 231);
             this.txtQuestionWarn.Name = "txtQuestionWarn";
             this.txtQuestionWarn.Size = new System.Drawing.Size(118, 13);
             this.txtQuestionWarn.TabIndex = 14;
@@ -256,6 +259,20 @@
             this.txt_debugInfo.TabIndex = 0;
             this.txt_debugInfo.TextChanged += new System.EventHandler(this.txt_debugInfo_TextChanged);
             // 
+            // lblCountSecQuest
+            // 
+            this.lblCountSecQuest.AutoSize = true;
+            this.lblCountSecQuest.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCountSecQuest.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCountSecQuest.Location = new System.Drawing.Point(571, 195);
+            this.lblCountSecQuest.Name = "lblCountSecQuest";
+            this.lblCountSecQuest.Size = new System.Drawing.Size(13, 13);
+            this.lblCountSecQuest.TabIndex = 16;
+            this.lblCountSecQuest.Text = "0";
+            this.lblCountSecQuest.UseMnemonic = false;
+            this.lblCountSecQuest.Visible = false;
+            this.lblCountSecQuest.Click += new System.EventHandler(this.lblCountSecQuest_Click);
+            // 
             // frmMain
             // 
             this.AcceptButton = this.btnConfirm;
@@ -263,6 +280,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblCountSecQuest);
             this.Controls.Add(this.txt_debugInfo);
             this.Controls.Add(this.txtAnswerWarn);
             this.Controls.Add(this.txtQuestionWarn);
@@ -314,6 +332,7 @@
         private System.Windows.Forms.TextBox txtQuestionWarn;
         private System.Windows.Forms.TextBox txtAnswerWarn;
         private System.Windows.Forms.TextBox txt_debugInfo;
+        private System.Windows.Forms.Label lblCountSecQuest;
     }
 }
 
