@@ -84,22 +84,13 @@ namespace LoginApplication
 
             //create debug system
             string addText (string inputText) {
-                if (debugSystem == 1)
+                if (txt_debugInfo.Text == string.Empty)
                 {
-                    if (txt_debugInfo.Text == string.Empty)
-                    {
                         txt_debugInfo.Text = inputText;
-                    }
-                    else
-                    {
+                } else {
                         txt_debugInfo.AppendText(Environment.NewLine);
                         txt_debugInfo.Text += inputText;
-                    }
-                    
-                } else
-                {
-                    return string.Empty;
-                };
+                }
                 return txt_debugInfo.Text;
             };
             
@@ -185,9 +176,11 @@ namespace LoginApplication
                 correct++;
             };
 
-            addText(correct.ToString());
-            addText(secQuest);
-
+            if (debugSystem == 1)
+            {
+                addText(correct.ToString());
+                addText(secQuest);
+            }
         }
 
         private void prgStage_Click(object sender, EventArgs e)
