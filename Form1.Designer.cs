@@ -223,9 +223,10 @@
             this.txtAnswerWarn.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAnswerWarn.Enabled = false;
             this.txtAnswerWarn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAnswerWarn.Location = new System.Drawing.Point(226, 231);
+            this.txtAnswerWarn.Location = new System.Drawing.Point(212, 284);
+            this.txtAnswerWarn.Multiline = true;
             this.txtAnswerWarn.Name = "txtAnswerWarn";
-            this.txtAnswerWarn.Size = new System.Drawing.Size(118, 13);
+            this.txtAnswerWarn.Size = new System.Drawing.Size(149, 40);
             this.txtAnswerWarn.TabIndex = 15;
             this.txtAnswerWarn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtAnswerWarn.TextChanged += new System.EventHandler(this.txtAnswerWarn_TextChanged);
@@ -233,11 +234,11 @@
             // txt_debugInfo
             // 
             this.txt_debugInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_debugInfo.Location = new System.Drawing.Point(574, 5);
+            this.txt_debugInfo.Location = new System.Drawing.Point(582, 255);
             this.txt_debugInfo.Multiline = true;
             this.txt_debugInfo.Name = "txt_debugInfo";
             this.txt_debugInfo.ReadOnly = true;
-            this.txt_debugInfo.Size = new System.Drawing.Size(206, 96);
+            this.txt_debugInfo.Size = new System.Drawing.Size(206, 183);
             this.txt_debugInfo.TabIndex = 0;
             this.txt_debugInfo.TabStop = false;
             this.txt_debugInfo.Visible = false;

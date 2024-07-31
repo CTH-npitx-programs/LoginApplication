@@ -82,23 +82,31 @@ namespace LoginApplication
         private void btnConfirm_Click(object sender, EventArgs e)
         {
 
-            //create debug system
+            //create debug system (use an empty string for a new line)
             string addText (string inputText) {
-                if (txt_debugInfo.Text == string.Empty)
+                if (inputText == "") {
+                    txt_debugInfo.AppendText(Environment.NewLine);
+                } //add ina new line if empty string
+                else
                 {
+                    if (txt_debugInfo.Text == string.Empty)
+                    {
                         txt_debugInfo.Text = inputText;
-                } else {
+                    } //if empty no extra line
+                    else
+                    {
                         txt_debugInfo.AppendText(Environment.NewLine);
                         txt_debugInfo.Text += inputText;
-                }
+                    } //normally new line
+                } //add in text with lines in with input
                 return txt_debugInfo.Text;
             };
             
             // vars
             var correct = 0;
-            var uID = txtUserID.Text; //storeID
-            var pass = txtPass.Text; //pass
-            var confirmPass = txtConfirmPass.Text; //passConfirm
+            var uID = txtUserID.Text.ToString(); //storeID
+            var pass = txtPass.Text.ToString(); //pass
+            var confirmPass = txtConfirmPass.Text.ToString(); //passConfirm
             string secQuest = cmbSecQuest.SelectedItem.ToString(); //Security Question
             var secAns = txtSecAnswer.Text; //Security Answer
             var correctCol = Color.LimeGreen; //what color to use for correct inputs
@@ -154,11 +162,11 @@ namespace LoginApplication
             };
 
             correct = correct + pickedSecQuest;
-            //chose question
-           if (secQuest == cmbPlaceholdText)
+           if (secQuest == cmbPlaceholdText ) //no question
             {
                 txtQuestionWarn.Text = "Pick Desired Question";
-            } else
+            }//chose question
+           else //picked question
             {
                 txtQuestionWarn.Text = string.Empty;
             };
@@ -167,19 +175,36 @@ namespace LoginApplication
             {
                 txtAnswerWarn.Text = "No Provided Answer";
                 txtSecAnswer.BackColor = incorrectCol;
-            } else
+            }//question missing value
+            else
             {
-                txtAnswerWarn.Text = string.Empty;
+                txtAnswerWarn.Text = string.Empty; //reset question warn
                 txtSecAnswer.BackColor = correctCol;
-                txtSecAnswer.Enabled = false;
-                cmbSecQuest.Enabled = false;
-                correct++;
-            };
+                if (secQuest == cmbPlaceholdText )
+                {
+                    txtAnswerWarn.Text = "provided answer but no selected question";
+                    txtSecAnswer.BackColor = incorrectCol;
+                } //no question
+                else //addd
+                {
+                    txtSecAnswer.Enabled = false;
+                    cmbSecQuest.Enabled = false;
+                    correct++;
+                }//both correct;
+            } //question has vales;
 
             if (debugSystem == 1)
             {
-                addText(correct.ToString());
-                addText(secQuest);
+                txt_debugInfo.Text = string.Empty; //reset box
+
+                addText(correct.ToString()); //total correct
+                addText("");
+                addText(uID); //userID
+                addText(pass); //confirm pass
+                addText(confirmPass); //confirm quest
+                addText("");
+                addText(secQuest); //secuirty quest
+                addText(secAns); //security answer
             }
         }
 
