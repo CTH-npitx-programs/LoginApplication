@@ -32,6 +32,14 @@ namespace LoginApplication
         {
             cmbSecQuest.Items.Insert(0, cmbPlaceholdText);
             cmbSecQuest.SelectedIndex = 0;
+
+            //prepare debug box
+            //setup debug box
+            txt_debugInfo.Text = string.Empty;
+            if (debugSystem == 1)
+            {
+                txt_debugInfo.Show();
+            };
         }
 
         //close program
@@ -73,24 +81,25 @@ namespace LoginApplication
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            //setup debug box
-            txt_debugInfo.Text = string.Empty;
-            if (debugSystem == 1)
-            {
-                txt_debugInfo.Show();
-            };
 
             //create debug system
             string addText (string inputText) {
-                if (txt_debugInfo.Text == string.Empty)
+                if (debugSystem == 1)
                 {
-                    txt_debugInfo.Text = inputText;
-                }
-                else
+                    if (txt_debugInfo.Text == string.Empty)
+                    {
+                        txt_debugInfo.Text = inputText;
+                    }
+                    else
+                    {
+                        txt_debugInfo.AppendText(Environment.NewLine);
+                        txt_debugInfo.Text += inputText;
+                    }
+                    
+                } else
                 {
-                    txt_debugInfo.AppendText(Environment.NewLine);
-                    txt_debugInfo.Text += inputText;
-                }                
+                    return string.Empty;
+                };
                 return txt_debugInfo.Text;
             };
             

@@ -239,6 +239,7 @@
             this.txt_debugInfo.ReadOnly = true;
             this.txt_debugInfo.Size = new System.Drawing.Size(206, 96);
             this.txt_debugInfo.TabIndex = 0;
+            this.txt_debugInfo.TabStop = false;
             this.txt_debugInfo.Visible = false;
             this.txt_debugInfo.TextChanged += new System.EventHandler(this.txt_debugInfo_TextChanged);
             // 
