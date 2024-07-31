@@ -26,7 +26,7 @@ namespace LoginApplication
         string cmbPlaceholdText = "Select the desired question from this list"; //the placeholder combo box text
 
         //debug mode (one for active, anything else for inactive)
-        int debugSystem = 1;
+        int debugSystem = 0;
 
         private void frmMain_Load(object sender, EventArgs e)
         {
