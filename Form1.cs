@@ -107,11 +107,12 @@ namespace LoginApplication
             var uID = txtUserID.Text.ToString(); //storeID
             var pass = txtPass.Text.ToString(); //pass
             var confirmPass = txtConfirmPass.Text.ToString(); //passConfirm
-            string secQuest = cmbSecQuest.SelectedItem.ToString(); //Security Question
+            var secQuest = cmbSecQuest.SelectedItem.ToString(); //Security Question
             var secAns = txtSecAnswer.Text; //Security Answer
             var correctCol = Color.LimeGreen; //what color to use for correct inputs
             var incorrectCol = Color.OrangeRed; //what color to use for incorrect inputs
             var pickedSecQuest = int.Parse(lblCountSecQuest.Text);
+            var baseColor = txt_debugInfo.BackColor;
 
             //user ID full?
             if (uID == string.Empty)
@@ -189,8 +190,8 @@ namespace LoginApplication
                 {
                     txtSecAnswer.Enabled = false;
                     cmbSecQuest.Enabled = false;
-                    correct++;
                 }//both correct;
+                correct++;
             } //question has vales;
 
             if (debugSystem == 1)
@@ -205,6 +206,33 @@ namespace LoginApplication
                 addText("");
                 addText(secQuest); //secuirty quest
                 addText(secAns); //security answer
+            }
+
+            if(correct == 5 )
+            {
+                lst_userID.Items.Add(uID);
+                if( lst_userID.Visible == false )
+                {
+                    lst_userID.Show();
+                }
+                txtUserID.Text = string.Empty; //remove text in userID
+                txtPass.Text = string.Empty; //remove text in passcode
+                txtConfirmPass.Text = string.Empty;
+                cmbSecQuest.Items.Insert(0, cmbPlaceholdText); //reset security question
+                cmbSecQuest.SelectedIndex = 0;
+                txtSecAnswer.Text = string.Empty; //remove text from security answer
+
+                txtUserID.BackColor = baseColor; //set user ID to base color
+                txtPass.BackColor = baseColor; //set passcode to base color
+                txtConfirmPass.BackColor = baseColor; //set confirm pass to base color
+                txtSecAnswer.BackColor = baseColor; //seet back color of sec answer to base
+
+                txtUserID.Enabled = true; //enable
+                txtSecAnswer.Enabled = true; // enable
+                txtPass.Enabled = true; //enable
+                txtConfirmPass.Enabled = true; //enable
+                cmbSecQuest.Enabled = true; //enable
+                txtSecAnswer.Enabled = true; //enable
             }
         }
 
@@ -277,6 +305,9 @@ namespace LoginApplication
             };
         }
 
+        private void lst_userID_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

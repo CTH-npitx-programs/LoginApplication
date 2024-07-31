@@ -48,6 +48,7 @@
             this.lbl_secAns = new System.Windows.Forms.Label();
             this.cmbSecQuest = new System.Windows.Forms.ComboBox();
             this.lbl_SeqQuest = new System.Windows.Forms.Label();
+            this.lst_userID = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -233,6 +234,7 @@
             // 
             // txt_debugInfo
             // 
+            this.txt_debugInfo.BackColor = System.Drawing.SystemColors.Window;
             this.txt_debugInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_debugInfo.Location = new System.Drawing.Point(582, 255);
             this.txt_debugInfo.Multiline = true;
@@ -300,6 +302,16 @@
             this.lbl_SeqQuest.TabIndex = 18;
             this.lbl_SeqQuest.Text = "Security Question";
             // 
+            // lst_userID
+            // 
+            this.lst_userID.FormattingEnabled = true;
+            this.lst_userID.Location = new System.Drawing.Point(582, 6);
+            this.lst_userID.Name = "lst_userID";
+            this.lst_userID.Size = new System.Drawing.Size(206, 121);
+            this.lst_userID.TabIndex = 20;
+            this.lst_userID.Visible = false;
+            this.lst_userID.SelectedIndexChanged += new System.EventHandler(this.lst_userID_SelectedIndexChanged);
+            // 
             // frmMain
             // 
             this.AcceptButton = this.btnConfirm;
@@ -307,6 +319,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lst_userID);
             this.Controls.Add(this.lbl_SeqQuest);
             this.Controls.Add(this.lbl_secAns);
             this.Controls.Add(this.cmbSecQuest);
@@ -364,6 +377,7 @@
         private System.Windows.Forms.Label lbl_secAns;
         private System.Windows.Forms.ComboBox cmbSecQuest;
         private System.Windows.Forms.Label lbl_SeqQuest;
+        private System.Windows.Forms.ListBox lst_userID;
     }
 }
 
