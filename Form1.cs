@@ -24,6 +24,10 @@ namespace LoginApplication
         }
 
         string cmbPlaceholdText = "Select the desired question from this list"; //the placeholder combo box text
+
+        //debug mode (one for active, anything else for inactive)
+        int debugSystem = 1;
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             cmbSecQuest.Items.Insert(0, cmbPlaceholdText);
@@ -71,6 +75,10 @@ namespace LoginApplication
         {
             //setup debug box
             txt_debugInfo.Text = string.Empty;
+            if (debugSystem == 1)
+            {
+                txt_debugInfo.Show();
+            };
 
             //create debug system
             string addText (string inputText) {
