@@ -225,7 +225,7 @@ namespace LoginApplication
                 txtUserID.BackColor = baseColor; //set user ID to base color
                 txtPass.BackColor = baseColor; //set passcode to base color
                 txtConfirmPass.BackColor = baseColor; //set confirm pass to base color
-                txtSecAnswer.BackColor = baseColor; //seet back color of sec answer to base
+                txtSecAnswer.BackColor = baseColor; //set back color of sec answer to base
 
                 txtUserID.Enabled = true; //enable
                 txtSecAnswer.Enabled = true; // enable
@@ -233,6 +233,8 @@ namespace LoginApplication
                 txtConfirmPass.Enabled = true; //enable
                 cmbSecQuest.Enabled = true; //enable
                 txtSecAnswer.Enabled = true; //enable
+
+                lblCountSecQuest.Text = Convert.ToString(0); //reset label value
             }
         }
 
