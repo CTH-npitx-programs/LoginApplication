@@ -206,6 +206,7 @@ namespace LoginApplication
                 addText("");
                 addText(secQuest); //secuirty quest
                 addText(secAns); //security answer
+                correct = 5; //set correct to five to allow rapid testing
             }
 
             if(correct == 5 )
