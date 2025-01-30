@@ -28,6 +28,9 @@ namespace LoginApplication
         //debug mode (one for active, anything else for inactive)
         int debugSystem = 1;
 
+        //constants
+        const string spacer = "    ";
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             cmbSecQuest.Items.Insert(0, cmbPlaceholdText);
@@ -119,7 +122,8 @@ namespace LoginApplication
             {
                 txtUserID.BackColor = Color.OrangeRed;
                 txtUserError.Text = "No User ID";
-            } else
+            } 
+            else
             {
                 txtUserID.BackColor = correctCol;
                 txtUserID.Enabled = false;
@@ -211,7 +215,14 @@ namespace LoginApplication
 
             if(correct == 5 )
             {
-                lst_userID.Items.Add(uID);
+                string logInfo = uID;
+                logInfo += spacer;
+                logInfo += pass;
+                logInfo += spacer;
+                logInfo += secAns;
+
+
+                lst_userID.Items.Add(logInfo);
                 if( lst_userID.Visible == false )
                 {
                     lst_userID.Show();

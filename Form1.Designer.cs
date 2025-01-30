@@ -309,6 +309,7 @@
             this.lst_userID.Name = "lst_userID";
             this.lst_userID.Size = new System.Drawing.Size(206, 121);
             this.lst_userID.TabIndex = 20;
+            this.lst_userID.TabStop = false;
             this.lst_userID.Visible = false;
             this.lst_userID.SelectedIndexChanged += new System.EventHandler(this.lst_userID_SelectedIndexChanged);
             // 
