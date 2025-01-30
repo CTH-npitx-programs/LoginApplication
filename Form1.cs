@@ -26,7 +26,7 @@ namespace LoginApplication
         string cmbPlaceholdText = "Select the desired question from this list"; //the placeholder combo box text
 
         //debug mode (one for active, anything else for inactive)
-        int debugSystem = 0;
+        int debugSystem = 1;
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -309,7 +309,8 @@ namespace LoginApplication
 
         private void lst_userID_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string entryEdit = lst_userID.SelectedItem.ToString();
+            debugSystem.ToString(entryEdit);
         }
     }
 }
