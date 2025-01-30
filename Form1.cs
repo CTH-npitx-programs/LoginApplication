@@ -32,6 +32,7 @@ namespace LoginApplication
             if (debugSystem)
             {
                 txt_debugInfo.Show();
+                lblCountSecQuest.Show();
             };
         }
 
