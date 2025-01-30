@@ -223,6 +223,7 @@ namespace LoginApplication
                 {
                     lst_userID.Show();
                 }
+                
                 txtUserID.Text = string.Empty; //remove text in userID
                 txtPass.Text = string.Empty; //remove text in passcode
                 txtConfirmPass.Text = string.Empty;
