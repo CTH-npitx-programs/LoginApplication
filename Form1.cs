@@ -27,9 +27,9 @@ namespace LoginApplication
 
         //debug mode (one for active, anything else for inactive)
         int debugSystem = 1;
-
+    
         //constants
-        const string spacer = "    ";
+        const string spacer = " ";
 
         private void frmMain_Load(object sender, EventArgs e)
         {
