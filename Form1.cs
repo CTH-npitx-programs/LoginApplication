@@ -212,17 +212,19 @@ namespace LoginApplication
 
             if (correct == 5)
             {
-                string logInfo = uID;
-                logInfo += spacer;
-                logInfo += pass;
-                logInfo += spacer;
-                logInfo += secAns;
+
+                user u = new user();
+                u.username = uID;
+                u.password = pass;
+                u.secQuest = secQuest;
+                u.secAnswer = secAns;
+                Program.users.Add(u);
 
 
-                lst_userID.Items.Add(logInfo);
                 if (lst_userID.Visible == false)
                 {
                     lst_userID.Show();
+                    lst_userID.Items.Add(uID.PadRight(15) + DateTime.Now.ToString("g"));
                 }
                 
                 txtUserID.Text = string.Empty; //remove text in userID
