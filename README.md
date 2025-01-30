@@ -1,3 +1,3 @@
 Login Application Features:
 
-Allow Editing of Log Entries
+Allow Editing of Log Entries 
