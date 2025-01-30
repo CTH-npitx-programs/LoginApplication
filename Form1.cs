@@ -224,9 +224,9 @@ namespace LoginApplication
                 if (lst_userID.Visible == false)
                 {
                     lst_userID.Show();
-                    lst_userID.Items.Add(uID.PadRight(15) + DateTime.Now.ToString("g"));
                 }
-                
+                lst_userID.Items.Add(uID.PadRight(15) + DateTime.Now.ToString("g"));
+
                 txtUserID.Text = string.Empty; //remove text in userID
                 txtPass.Text = string.Empty; //remove text in passcode
                 txtConfirmPass.Text = string.Empty;
@@ -321,8 +321,16 @@ namespace LoginApplication
 
         private void lst_userID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string entryEdit = lst_userID.SelectedItem.ToString();
-            txt_debugInfo.Text = entryEdit;
+            if(lst_userID.SelectedIndex != -1)
+            {
+                user u = Program.users[lst_userID.SelectedIndex];
+                txtUserID.Text = u.username;
+                txtPass.Text = u.password;
+                txtConfirmPass.Text = u.password;
+                txtSecAnswer.Text = u.secAnswer;
+                cmbSecQuest.Text = u.secQuest;
+            }
+
         }
     }
 }
