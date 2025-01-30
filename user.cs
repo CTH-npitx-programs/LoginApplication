@@ -1,8 +1,8 @@
 ﻿using System;
 
-public class Class
+public class user
 {
-	public Class()
+	public user()
 	{
 	internal string username;
 	internal string password;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace LoginApplication
@@ -13,7 +14,10 @@ namespace LoginApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            Application.Run(new frmMain());        
         }
+        internal static List<user> users = new List<user>();
     }
+
+    
 }
