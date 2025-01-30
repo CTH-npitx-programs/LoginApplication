@@ -26,7 +26,8 @@ namespace LoginApplication
         string cmbPlaceholdText = "Select the desired question from this list"; //the placeholder combo box text
 
         //debug mode (one for active, anything else for inactive)
-        int debugSystem = 1;
+        const bool debugSystem = true;
+        
     
         //constants
         const string spacer = " ";
@@ -39,7 +40,7 @@ namespace LoginApplication
             //prepare debug box
             //setup debug box
             txt_debugInfo.Text = string.Empty;
-            if (debugSystem == 1)
+            if (debugSystem)
             {
                 txt_debugInfo.Show();
             };
@@ -59,7 +60,10 @@ namespace LoginApplication
 
         private void txtPass_TextChanged(object sender, EventArgs e)
         {
-
+            if(debugSystem)
+            {
+                txtConfirmPass.Text = txtPass.Text;
+            }
         }
 
         private void txtConfirmPass_TextChanged(object sender, EventArgs e)
@@ -198,7 +202,7 @@ namespace LoginApplication
                 correct++;
             } //question has vales;
 
-            if (debugSystem == 1)
+            if (debugSystem)
             {
                 txt_debugInfo.Text = string.Empty; //reset box
 
@@ -322,7 +326,7 @@ namespace LoginApplication
         private void lst_userID_SelectedIndexChanged(object sender, EventArgs e)
         {
             string entryEdit = lst_userID.SelectedItem.ToString();
-            debugSystem.ToString(entryEdit);
+            txt_debugInfo.Text = entryEdit;
         }
     }
 }
