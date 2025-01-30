@@ -218,13 +218,23 @@ namespace LoginApplication
                 u.password = pass;
                 u.secQuest = secQuest;
                 u.secAnswer = secAns;
-                Program.users.Add(u);
-
-
+                
                 if (lst_userID.Visible == false)
                 {
                     lst_userID.Show();
                 }
+                if (lst_userID.SelectedIndex == -1)
+                {
+                    Program.users.Add(u);
+                    lst_userID.Items.Add(uID.PadRight(15) + DateTime.Now.ToString("g"));
+                } else //somethings selected
+                {
+                    Program.users[lst_userID.SelectedIndex] = u;
+                    lst_userID.Items[lst_userID.SelectedIndex] = (uID.PadRight(15) + DateTime.Now.ToString("g"));
+                }
+
+
+
                 lst_userID.Items.Add(uID.PadRight(15) + DateTime.Now.ToString("g"));
 
                 txtUserID.Text = string.Empty; //remove text in userID

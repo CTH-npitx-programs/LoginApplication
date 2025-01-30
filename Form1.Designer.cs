@@ -50,6 +50,7 @@
             this.cmbSecQuest = new System.Windows.Forms.ComboBox();
             this.lbl_SeqQuest = new System.Windows.Forms.Label();
             this.lst_userID = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnClose
@@ -315,6 +316,13 @@
             this.lst_userID.Visible = false;
             this.lst_userID.SelectedIndexChanged += new System.EventHandler(this.lst_userID_SelectedIndexChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(349, 258);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 21;
+            // 
             // frmMain
             // 
             this.AcceptButton = this.btnConfirm;
@@ -322,6 +330,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lst_userID);
             this.Controls.Add(this.lbl_SeqQuest);
             this.Controls.Add(this.lbl_secAns);
@@ -381,6 +390,7 @@
         private System.Windows.Forms.ComboBox cmbSecQuest;
         private System.Windows.Forms.Label lbl_SeqQuest;
         private System.Windows.Forms.ListBox lst_userID;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
