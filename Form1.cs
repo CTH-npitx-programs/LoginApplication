@@ -17,10 +17,6 @@ namespace LoginApplication
         //debug mode (one for active, anything else for inactive)
         const bool debugSystem = false;
 
-
-        //constants
-        const string spacer = " ";
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             cmbSecQuest.Items.Insert(0, cmbPlaceholdText);
