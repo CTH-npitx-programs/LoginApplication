@@ -1,16 +1,5 @@
 ﻿using System;
-using System.CodeDom;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LoginApplication
@@ -26,7 +15,7 @@ namespace LoginApplication
         string cmbPlaceholdText = "Select the desired question from this list"; //the placeholder combo box text
 
         //debug mode (one for active, anything else for inactive)
-        int debugSystem = 0;
+        const bool debugSystem = false;
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -36,9 +25,10 @@ namespace LoginApplication
             //prepare debug box
             //setup debug box
             txt_debugInfo.Text = string.Empty;
-            if (debugSystem == 1)
+            if (debugSystem)
             {
                 txt_debugInfo.Show();
+                lblCountSecQuest.Show();
             };
         }
 
@@ -51,12 +41,15 @@ namespace LoginApplication
 
         private void txtUserID_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
         {
-
+            if (debugSystem)
+            {
+                txtConfirmPass.Text = txtPass.Text;
+            }
         }
 
         private void txtConfirmPass_TextChanged(object sender, EventArgs e)
@@ -83,8 +76,10 @@ namespace LoginApplication
         {
 
             //create debug system (use an empty string for a new line)
-            string addText (string inputText) {
-                if (inputText == "") {
+            string addText(string inputText)
+            {
+                if (inputText == "")
+                {
                     txt_debugInfo.AppendText(Environment.NewLine);
                 } //add ina new line if empty string
                 else
@@ -101,7 +96,7 @@ namespace LoginApplication
                 } //add in text with lines in with input
                 return txt_debugInfo.Text;
             };
-            
+
             // vars
             var correct = 0;
             var uID = txtUserID.Text.ToString(); //storeID
@@ -119,7 +114,8 @@ namespace LoginApplication
             {
                 txtUserID.BackColor = Color.OrangeRed;
                 txtUserError.Text = "No User ID";
-            } else
+            }
+            else
             {
                 txtUserID.BackColor = correctCol;
                 txtUserID.Enabled = false;
@@ -141,21 +137,22 @@ namespace LoginApplication
             };
 
             //passcodes same?
-            if ( txtPass.BackColor == incorrectCol)
+            if (txtPass.BackColor == incorrectCol)
             {
                 txtConfirmPass.BackColor = incorrectCol;
                 txtConfirmError.Text = "No Password in main input";
             }
             else
             {
-                if (pass == confirmPass )
+                if (pass == confirmPass)
                 {
                     txtConfirmPass.BackColor = correctCol;
                     txtPass.Enabled = false;
                     txtConfirmPass.Enabled = false;
                     txtConfirmError.Text = string.Empty;
                     correct++;
-                } else
+                }
+                else
                 {
                     txtConfirmPass.BackColor = incorrectCol;
                     txtConfirmError.Text = "Passcodes inequal";
@@ -163,16 +160,16 @@ namespace LoginApplication
             };
 
             correct = correct + pickedSecQuest;
-           if (secQuest == cmbPlaceholdText ) //no question
+            if (secQuest == cmbPlaceholdText) //no question
             {
                 txtQuestionWarn.Text = "Pick Desired Question";
             }//chose question
-           else //picked question
+            else //picked question
             {
                 txtQuestionWarn.Text = string.Empty;
             };
 
-            if( secAns == string.Empty )
+            if (secAns == string.Empty)
             {
                 txtAnswerWarn.Text = "No Provided Answer";
                 txtSecAnswer.BackColor = incorrectCol;
@@ -181,12 +178,12 @@ namespace LoginApplication
             {
                 txtAnswerWarn.Text = string.Empty; //reset question warn
                 txtSecAnswer.BackColor = correctCol;
-                if (secQuest == cmbPlaceholdText )
+                if (secQuest == cmbPlaceholdText)
                 {
                     txtAnswerWarn.Text = "provided answer but no selected question";
                     txtSecAnswer.BackColor = incorrectCol;
                 } //no question
-                else //addd
+                else //add
                 {
                     txtSecAnswer.Enabled = false;
                     cmbSecQuest.Enabled = false;
@@ -194,7 +191,7 @@ namespace LoginApplication
                 correct++;
             } //question has vales;
 
-            if (debugSystem == 1)
+            if (debugSystem) //the debug system
             {
                 txt_debugInfo.Text = string.Empty; //reset box
 
@@ -206,15 +203,33 @@ namespace LoginApplication
                 addText("");
                 addText(secQuest); //secuirty quest
                 addText(secAns); //security answer
+                correct = 5; //set correct to five to allow rapid testing
             }
 
-            if(correct == 5 )
+            if (correct == 5)
             {
-                lst_userID.Items.Add(uID);
-                if( lst_userID.Visible == false )
+
+                user u = new user();
+                u.username = uID;
+                u.password = pass;
+                u.secQuest = secQuest;
+                u.secAnswer = secAns;
+                
+                if (lst_userID.Visible == false) //no entry yet, this is the first one. Show box
                 {
                     lst_userID.Show();
                 }
+                if (lst_userID.SelectedIndex == -1) //nothing selected, so add
+                {
+                    Program.users.Add(u);
+                    lst_userID.Items.Add(uID.PadRight(15) + DateTime.Now.ToString("g"));
+                } else //somethings selected, so edit
+                {
+                    Program.users[lst_userID.SelectedIndex] = u;
+                    lst_userID.Items[lst_userID.SelectedIndex] = (uID.PadRight(15) + DateTime.Now.ToString("g"));
+                }
+
+
                 txtUserID.Text = string.Empty; //remove text in userID
                 txtPass.Text = string.Empty; //remove text in passcode
                 txtConfirmPass.Text = string.Empty;
@@ -225,7 +240,7 @@ namespace LoginApplication
                 txtUserID.BackColor = baseColor; //set user ID to base color
                 txtPass.BackColor = baseColor; //set passcode to base color
                 txtConfirmPass.BackColor = baseColor; //set confirm pass to base color
-                txtSecAnswer.BackColor = baseColor; //seet back color of sec answer to base
+                txtSecAnswer.BackColor = baseColor; //set back color of sec answer to base
 
                 txtUserID.Enabled = true; //enable
                 txtSecAnswer.Enabled = true; // enable
@@ -233,6 +248,8 @@ namespace LoginApplication
                 txtConfirmPass.Enabled = true; //enable
                 cmbSecQuest.Enabled = true; //enable
                 txtSecAnswer.Enabled = true; //enable
+
+                lblCountSecQuest.Text = Convert.ToString(0); //reset label value
             }
         }
 
@@ -298,7 +315,7 @@ namespace LoginApplication
                 else
                 {
                     // remove first entry
-                    cmbSecQuest.Items.RemoveAt(0); 
+                    cmbSecQuest.Items.RemoveAt(0);
                     lblCountSecQuest.Text = Convert.ToString(run + 1);
 
                 };
@@ -307,6 +324,15 @@ namespace LoginApplication
 
         private void lst_userID_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(lst_userID.SelectedIndex != -1)
+            {
+                user u = Program.users[lst_userID.SelectedIndex];
+                txtUserID.Text = u.username;
+                txtPass.Text = u.password;
+                txtConfirmPass.Text = u.password;
+                txtSecAnswer.Text = u.secAnswer;
+                cmbSecQuest.Text = u.secQuest;
+            }
 
         }
     }
