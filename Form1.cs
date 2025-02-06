@@ -15,7 +15,7 @@ namespace LoginApplication
         string cmbPlaceholdText = "Select the desired question from this list"; //the placeholder combo box text
 
         //debug mode (one for active, anything else for inactive)
-        const bool debugSystem = true;
+        const bool debugSystem = false;
 
 
         //constants
