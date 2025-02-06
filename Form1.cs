@@ -34,7 +34,6 @@ namespace LoginApplication
                 txt_debugInfo.Show();
                 lblCountSecQuest.Show();
         }
-        //placehold
 
         //close program
         private void btnClose_Click(object sender, EventArgs e)
