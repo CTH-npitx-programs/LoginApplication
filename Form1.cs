@@ -234,9 +234,6 @@ namespace LoginApplication
                 }
 
 
-
-                lst_userID.Items.Add(uID.PadRight(15) + DateTime.Now.ToString("g"));
-
                 txtUserID.Text = string.Empty; //remove text in userID
                 txtPass.Text = string.Empty; //remove text in passcode
                 txtConfirmPass.Text = string.Empty;
