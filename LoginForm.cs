@@ -15,11 +15,7 @@ namespace LoginApplication
         string cmbPlaceholdText = "Select the desired question from this list"; //the placeholder combo box text
 
         //debug mode (one for active, anything else for inactive)
-        const bool debugSystem = true;
-
-
-        //constants
-        const string spacer = " ";
+        const bool debugSystem = false;
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -32,6 +28,7 @@ namespace LoginApplication
             if (debugSystem)
             {
                 txt_debugInfo.Show();
+                lblCountSecQuest.Show();
             };
         }
 
@@ -186,7 +183,7 @@ namespace LoginApplication
                     txtAnswerWarn.Text = "provided answer but no selected question";
                     txtSecAnswer.BackColor = incorrectCol;
                 } //no question
-                else //addd
+                else //add
                 {
                     txtSecAnswer.Enabled = false;
                     cmbSecQuest.Enabled = false;
@@ -194,7 +191,7 @@ namespace LoginApplication
                 correct++;
             } //question has vales;
 
-            if (debugSystem)
+            if (debugSystem) //the debug system
             {
                 txt_debugInfo.Text = string.Empty; //reset box
 
@@ -211,18 +208,28 @@ namespace LoginApplication
 
             if (correct == 5)
             {
-                string logInfo = uID;
-                logInfo += spacer;
-                logInfo += pass;
-                logInfo += spacer;
-                logInfo += secAns;
 
-
-                lst_userID.Items.Add(logInfo);
-                if (lst_userID.Visible == false)
+                user u = new user();
+                u.username = uID;
+                u.password = pass;
+                u.secQuest = secQuest;
+                u.secAnswer = secAns;
+                
+                if (lst_userID.Visible == false) //no entry yet, this is the first one. Show box
                 {
                     lst_userID.Show();
                 }
+                if (lst_userID.SelectedIndex == -1) //nothing selected, so add
+                {
+                    Program.users.Add(u);
+                    lst_userID.Items.Add(uID.PadRight(15) + DateTime.Now.ToString("g"));
+                } else //somethings selected, so edit
+                {
+                    Program.users[lst_userID.SelectedIndex] = u;
+                    lst_userID.Items[lst_userID.SelectedIndex] = (uID.PadRight(15) + DateTime.Now.ToString("g"));
+                }
+
+
                 txtUserID.Text = string.Empty; //remove text in userID
                 txtPass.Text = string.Empty; //remove text in passcode
                 txtConfirmPass.Text = string.Empty;
@@ -317,8 +324,16 @@ namespace LoginApplication
 
         private void lst_userID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string entryEdit = lst_userID.SelectedItem.ToString();
-            txt_debugInfo.Text = entryEdit;
+            if(lst_userID.SelectedIndex != -1)
+            {
+                user u = Program.users[lst_userID.SelectedIndex];
+                txtUserID.Text = u.username;
+                txtPass.Text = u.password;
+                txtConfirmPass.Text = u.password;
+                txtSecAnswer.Text = u.secAnswer;
+                cmbSecQuest.Text = u.secQuest;
+            }
+
         }
     }
 }
