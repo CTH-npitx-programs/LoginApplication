@@ -33,7 +33,6 @@ namespace LoginApplication
             {
                 txt_debugInfo.Show();
                 lblCountSecQuest.Show();
-            };
         }
 
         //close program
