@@ -17,10 +17,6 @@ namespace LoginApplication
         //debug mode (one for active, anything else for inactive)
         const bool debugSystem = false;
 
-
-        //constants
-        const string spacer = " ";
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             cmbSecQuest.Items.Insert(0, cmbPlaceholdText);
@@ -187,7 +183,7 @@ namespace LoginApplication
                     txtAnswerWarn.Text = "provided answer but no selected question";
                     txtSecAnswer.BackColor = incorrectCol;
                 } //no question
-                else //addd
+                else //add
                 {
                     txtSecAnswer.Enabled = false;
                     cmbSecQuest.Enabled = false;
@@ -195,7 +191,7 @@ namespace LoginApplication
                 correct++;
             } //question has vales;
 
-            if (debugSystem)
+            if (debugSystem) //the debug system
             {
                 txt_debugInfo.Text = string.Empty; //reset box
 
@@ -219,15 +215,15 @@ namespace LoginApplication
                 u.secQuest = secQuest;
                 u.secAnswer = secAns;
                 
-                if (lst_userID.Visible == false)
+                if (lst_userID.Visible == false) //no entry yet, this is the first one. Show box
                 {
                     lst_userID.Show();
                 }
-                if (lst_userID.SelectedIndex == -1)
+                if (lst_userID.SelectedIndex == -1) //nothing selected, so add
                 {
                     Program.users.Add(u);
                     lst_userID.Items.Add(uID.PadRight(15) + DateTime.Now.ToString("g"));
-                } else //somethings selected
+                } else //somethings selected, so edit
                 {
                     Program.users[lst_userID.SelectedIndex] = u;
                     lst_userID.Items[lst_userID.SelectedIndex] = (uID.PadRight(15) + DateTime.Now.ToString("g"));
