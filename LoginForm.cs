@@ -191,7 +191,7 @@ namespace LoginApplication
                 correct++;
             } //question has vales;
 
-            if (debugSystem)
+            if (debugSystem) //the debug system
             {
                 txt_debugInfo.Text = string.Empty; //reset box
 
